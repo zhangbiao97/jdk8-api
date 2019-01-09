@@ -1,4 +1,4 @@
-package com.zb.java8;
+package com.zb.lambda;
 
 import com.zb.pojo.Employee;
 import org.junit.Test;

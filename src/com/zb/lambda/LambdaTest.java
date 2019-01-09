@@ -1,4 +1,4 @@
-package com.zb.java8;
+package com.zb.lambda;
 
 import com.zb.dao.MyFun;
 import org.junit.Test;

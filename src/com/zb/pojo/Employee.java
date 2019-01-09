@@ -1,5 +1,7 @@
 package com.zb.pojo;
 
+import java.util.Objects;
+
 /**
  * 〈一句话功能简述〉<br>
  * 〈〉
@@ -23,6 +25,21 @@ public class Employee {
         this.name = name;
         this.age = age;
         this.salary = salary;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return name.equals(employee.name) &&
+                age.equals(employee.age) &&
+                salary.equals(employee.salary);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, salary);
     }
 
     public String getName() {
