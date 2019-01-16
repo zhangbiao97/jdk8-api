@@ -1,6 +1,6 @@
-package com.zb.lambda;
+package com.java8.lambda;
 
-import com.zb.pojo.Employee;
+import com.java8.pojo.Employee;
 import org.junit.Test;
 
 import java.io.PrintStream;

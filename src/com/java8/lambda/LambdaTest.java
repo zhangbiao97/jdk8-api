@@ -1,6 +1,6 @@
-package com.zb.lambda;
+package com.java8.lambda;
 
-import com.zb.dao.MyFun;
+import com.java8.dao.MyFun;
 import org.junit.Test;
 
 import java.util.Comparator;

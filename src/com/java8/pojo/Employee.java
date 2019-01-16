@@ -1,4 +1,6 @@
-package com.zb.pojo;
+package com.java8.pojo;
+
+import com.java8.util.StatusEnum;
 
 import java.util.Objects;
 
@@ -13,6 +15,7 @@ public class Employee {
     private String name;
     private Integer age;
     private Double salary;
+    private StatusEnum statusEnum;
 
     public Employee() {
     }
@@ -27,19 +30,35 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Employee(String name, Integer age, Double salary, StatusEnum statusEnum) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.statusEnum = statusEnum;
+    }
+
+    public StatusEnum getStatusEnum() {
+        return statusEnum;
+    }
+
+    public void setStatusEnum(StatusEnum statusEnum) {
+        this.statusEnum = statusEnum;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return name.equals(employee.name) &&
-                age.equals(employee.age) &&
-                salary.equals(employee.salary);
+        return Objects.equals(name, employee.name) &&
+                Objects.equals(age, employee.age) &&
+                Objects.equals(salary, employee.salary) &&
+                statusEnum == employee.statusEnum;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, salary);
+        return Objects.hash(name, age, salary, statusEnum);
     }
 
     public String getName() {
@@ -72,6 +91,7 @@ public class Employee {
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
+                ", statusEnum=" + statusEnum +
                 '}';
     }
 }

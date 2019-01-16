@@ -1,4 +1,4 @@
-package com.zb.dao;
+package com.java8.dao;
 
 /**
  * 〈一句话功能简述〉<br>
