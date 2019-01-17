@@ -14,13 +14,11 @@ import java.util.stream.LongStream;
 public class ForkJoinTest {
 
     @Test
-    public void test01(){
-
+    public void test01() {
         long sum = LongStream.rangeClosed(0, 100000000000L)
                 .parallel()
                 .reduce(0, Long::sum);
         System.out.println(sum);
-
     }
 
 }

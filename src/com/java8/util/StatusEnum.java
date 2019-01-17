@@ -8,5 +8,5 @@ package com.java8.util;
  * @create 2019/1/15
  */
 public enum StatusEnum {
-    FREE,BUSY,VOCATION
+    FREE, BUSY, VOCATION
 }

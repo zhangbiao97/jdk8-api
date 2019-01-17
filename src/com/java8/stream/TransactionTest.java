@@ -14,8 +14,8 @@ import java.util.stream.Stream;
 /**
  * 〈功能简述〉<br>
  * 〈
- *      Stream API练习
- *  〉
+ * Stream API练习
+ * 〉
  *
  * @author Administrator
  * @create 2019/1/16
@@ -25,7 +25,7 @@ public class TransactionTest {
     List<Transaction> transactions = null;
 
     @Before
-    public void before(){
+    public void before() {
         Trader raoul = new Trader("Raoul", "Cambridge");
         Trader mario = new Trader("Mario", "Milan");
         Trader alan = new Trader("Alan", "Cambridge");
@@ -45,10 +45,10 @@ public class TransactionTest {
      * 1. 找出2011年发生的所有交易， 并按交易额排序（从低到高）
      */
     @Test
-    public void test01(){
+    public void test01() {
         transactions.stream()
-                .filter((x) -> x.getYear()==2011)
-                .sorted((x,y) -> -Double.compare(x.getValue(),y.getValue()))
+                .filter((x) -> x.getYear() == 2011)
+                .sorted((x, y) -> -Double.compare(x.getValue(), y.getValue()))
                 .forEach(System.out::println);
 
     }
@@ -57,7 +57,7 @@ public class TransactionTest {
      * 2. 交易员都在哪些不同的城市工作过？
      */
     @Test
-    public void test02(){
+    public void test02() {
         transactions.stream()
                 .map((x) -> x.getTrader().getCity())
                 .distinct()
@@ -68,30 +68,30 @@ public class TransactionTest {
      * 3. 查找所有来自剑桥的交易员，并按姓名排序
      */
     @Test
-    public void test03(){
+    public void test03() {
         transactions.stream()
-            .map(x -> x.getTrader().getName())
-            .distinct()
-            .sorted(String::compareTo)
-            .forEach(System.out::println);
+                .map(x -> x.getTrader().getName())
+                .distinct()
+                .sorted(String::compareTo)
+                .forEach(System.out::println);
     }
 
     /**
      * 4. 返回所有交易员的姓名字符串，按字母顺序排序
      */
     @Test
-    public void test04(){
+    public void test04() {
         transactions.stream()
                 .map(x -> x.getTrader().getName())
                 .flatMap(TransactionTest::filterByStr)
-                .sorted((x,y) -> x.compareToIgnoreCase(y))
+                .sorted((x, y) -> x.compareToIgnoreCase(y))
                 .forEach(System.out::println);
 
     }
 
-    public static Stream<String> filterByStr(String str){
-        List<String> list=new ArrayList<>();
-        for(Character ch:str.toCharArray()){
+    public static Stream<String> filterByStr(String str) {
+        List<String> list = new ArrayList<>();
+        for (Character ch : str.toCharArray()) {
             list.add(ch.toString());
         }
         return list.stream();
@@ -101,7 +101,7 @@ public class TransactionTest {
      * 5. 有没有交易员是在米兰工作的？
      */
     @Test
-    public void test05(){
+    public void test05() {
         boolean b = transactions.stream()
                 .anyMatch(x -> x.getTrader().getCity().equals("Milan"));
         System.out.println(b);
@@ -111,7 +111,7 @@ public class TransactionTest {
      * 6. 打印生活在剑桥的交易员的所有交易额
      */
     @Test
-    public void test06(){
+    public void test06() {
         Optional<Integer> sum = transactions.stream()
                 .filter(x -> x.getTrader().getCity().equals("Cambridge"))
                 .map(x -> x.getValue())
@@ -123,7 +123,7 @@ public class TransactionTest {
      * 7. 所有交易中，最高的交易额是多少
      */
     @Test
-    public void test07(){
+    public void test07() {
         Optional<Integer> max = transactions.stream()
                 .map(x -> x.getValue())
                 .max(Integer::compareTo);
@@ -135,7 +135,7 @@ public class TransactionTest {
      * 8. 找到交易额最小的交易
      */
     @Test
-    public void test08(){
+    public void test08() {
         Optional<Integer> min = transactions.stream()
                 .map(Transaction::getValue)
                 .min(Integer::compareTo);
